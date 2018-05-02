@@ -42,7 +42,7 @@ pipeline {
 
     stage('Test ARM image') {
       steps {
-        sh 'docker run --rm --name ${CONTAINER} ${TEST_IMAGE} node --version'
+        sh 'docker run --rm --name ${CONTAINER} ${TEST_IMAGE} mongo --version'
       }
     }
 
