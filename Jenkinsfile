@@ -36,7 +36,7 @@ pipeline {
       steps {
         // Runs qemu container to enable building of arm images on x86_64
         sh 'docker run --rm --privileged multiarch/qemu-user-static:register --reset'
-        sh 'docker build -t ${TEST_IMAGE} -f DockerfileARM .'
+        sh 'docker build -t ${TEST_IMAGE} -f Dockerfile .'
       }
     }
 
