@@ -10,7 +10,7 @@ LABEL mongod_version=3.0.14
 ADD mongodb_stretch_3_0_14_core.tar.gz /usr/bin/
 ADD mongodb_stretch_3_0_14_tools.tar.gz /usr/bin/
 
-COPY qemu-arm-static /usr/bin
+COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb && \
     mkdir -p \
