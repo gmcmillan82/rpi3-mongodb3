@@ -10,12 +10,14 @@ LABEL mongod_version=3.0.14
 ADD mongodb_stretch_3_0_14_core.tar.gz /usr/bin/
 ADD mongodb_stretch_3_0_14_tools.tar.gz /usr/bin/
 
-RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
-RUN mkdir -p \
+COPY qemu-arm-static /usr/bin
+
+RUN groupadd -r mongodb && useradd -r -g mongodb mongodb && \
+    mkdir -p \
     /data/db \
     /data/configdb \
     /var/log/mongodb \
-&& chown -R mongodb:mongodb \
+    && chown -R mongodb:mongodb \
     /usr/bin/mongo* \
     /data/db \
     /data/configdb \
