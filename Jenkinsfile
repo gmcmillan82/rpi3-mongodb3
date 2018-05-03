@@ -9,7 +9,7 @@ Date 31/01/2018
 pipeline {
   agent {
     node {
-      label 'master'
+      label 'docker-builder'
     }
   }
 
