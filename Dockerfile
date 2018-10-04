@@ -12,7 +12,9 @@ ADD mongodb_stretch_3_0_14_tools.tar.gz /usr/bin/
 
 COPY qemu-arm-static /usr/bin/qemu-arm-static
 
-RUN groupadd -r mongodb && useradd -r -g mongodb mongodb && \
+RUN apt update && \
+	apt upgrade -y && \
+    groupadd -r mongodb && useradd -r -g mongodb mongodb && \
     mkdir -p \
     /data/db \
     /data/configdb \
@@ -21,7 +23,7 @@ RUN groupadd -r mongodb && useradd -r -g mongodb mongodb && \
     /usr/bin/mongo* \
     /data/db \
     /data/configdb \
-    /var/log/mongodb
+    /var/log/mongodb && \
 
 COPY ./docker-entrypoint.sh /
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
