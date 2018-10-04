@@ -23,7 +23,7 @@ RUN apt update && \
     /usr/bin/mongo* \
     /data/db \
     /data/configdb \
-    /var/log/mongodb && \
+    /var/log/mongodb \
 
 COPY ./docker-entrypoint.sh /
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
